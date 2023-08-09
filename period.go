@@ -36,7 +36,7 @@ func (p *Period) End() time.Time {
 }
 
 func (p *Period) IsWithinPeriod(t time.Time) bool {
-	return t.After(p.start) && t.Before(p.end)
+	return !t.Before(p.start) && !t.After(p.end)
 }
 
 func (p *Period) IsOutsidePeriod(t time.Time) bool {
